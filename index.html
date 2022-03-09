@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-wrapper">
+        <img src="calendar-multiselect.png">
+        <h1 class="logo-text">Calendar</h1>
+    </div>
+        <button class="add-event-button">
+            <i class="fa fa-plus"></i>
+             Add Event</button>
+    </header>
+    <div class="wrapper">
+        <aside>
+            <div class="calendar-container">
+                <div class="calendar">
+                    <div class="month">
+                        <i class="fa fa-angle-left prev"></i>
+                        <div class="date">
+                            <h3>May</h3>
+                            <p>Tue 4, 2022</p>
+                        </div>
+                        <i class="fas fa-angle-right next"></i>
+                    </div>
+                    <div class="weekdays">
+                        <div>Su</div>
+                        <div>Mo</div>
+                        <div>Tu</div>
+                        <div>We</div>
+                        <div>Th</div>
+                        <div>Fr</div>
+                        <div>Sa</div>
+                    </div>
+                    <div class="days">
+                        <div class="prev-date">26</div>
+                        <div class="prev-date">26</div>
+                        <div class="prev-date">27</div>
+                        <div class="prev-date">28</div>
+                        <div class="prev-date">29</div>
+                        <div class="prev-date">30</div>
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div class="current-day">4</div>
+                        <div>5</div>
+                        <div>6</div>
+                        <div>7</div>
+                        <div>8</div>
+                        <div>9</div>
+                        <div>10</div>
+                        <div>11</div>
+                        <div>12</div>
+                        <div>13</div>
+                        <div>14</div>
+                        <div>15</div>
+                        <div>16</div>
+                        <div>17</div>
+                        <div>18</div>
+                        <div>19</div>
+                        <div>20</div>
+                        <div>21</div>
+                        <div>22</div>
+                        <div>23</div>
+                        <div>24</div>
+                        <div>25</div>
+                        <div>26</div>
+                        <div>27</div>
+                        <div>28</div>
+                        <div>29</div>
+                        <div>30</div>
+                        <div>31</div>
+                        <div class="next-date">1</div>
+                        <div class="next-date">2</div>
+                        <div class="next-date">3</div>
+                        <div class="next-date">4</div>
+                        <div class="next-date">5</div>
+                </div>
+                </div>
+            </div>
+            <div class="categories-container">
+                <h2 class="categories-title">Categories</h2>
+            <div class="categories-list">
+                <ul>
+                    <li><span class="category-color-app"> </span>Appointments</li>
+                    <li><span class="category-color-mtg"> </span>Meetings</li>
+                    <li><span class="category-color-crs"> </span>Courses</li>
+                    <li><span class="category-color-bdy"> </span>Birthdays</li>
+                </ul>
+            </div>
+            <div class="add-category">
+            <label for="addCategoryInput">Add a new category</label>
+                <input type="color">
+                <input type="text" name="add-category" id="addCategoryInput" placeholder="Write something...">
+                <button type="submit">Add</button>
+            </div>
+            </div>
+        </aside>
+        <main class="content-container">
+            <div class="hours-container">
+                <div>06:00</div>
+                <div>07:00</div>
+                <div>08:00</div>
+                <div>09:00</div>
+                <div>10:00</div>
+                <div>11:00</div>
+                <div>12:00</div>
+                <div>13:00</div>
+                <div>14:00</div>
+                <div>15:00</div>
+                <div>16:00</div>
+                <div>17:00</div>
+                <div>18:00</div>
+                <div>19:00</div>
+                <div>20:00</div>
+                <div>21:00</div>
+                <div>22:00</div>
+                <div>23:00</div>
+                <div>00:00</div>
+            </div>
+            <div class="hours-lines">
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+            </div>
+            <div class="half-hours-lines">
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+                <div><hr></div>
+        </main>
+    </div>
+</body>
+</html>
