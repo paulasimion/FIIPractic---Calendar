@@ -33,6 +33,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 16px 56px;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
 }
 
 body {
@@ -72,8 +76,9 @@ body {
     flex-grow: 1;
     gap: 16px;
     height: 664px;
+    position: fixed;
+    width: 316px;
 }
-
 
 .logo-text {
     font-family: 'Poppins', sans-serif;
@@ -81,7 +86,7 @@ body {
 
 .calendar-container {
     background-color: white;
-    padding: 16px 16px ;
+    padding: 16px 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -130,12 +135,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 8px;
 }
 
 .weekdays div {
     font-size: 14px;
     font-weight: 600;
-    width: 32px;
+    width: calc(100%/7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,7 +151,7 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 10px;
 }
 
 .days div {
@@ -155,30 +161,46 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px 4px;
+    cursor: pointer;
 }
 
-.prev-date, .next-date {
+.days div:hover {
+    background-color: #F3E2FE;
+    border-radius: 4px;
+    color: #7209B7;
+}
+
+
+/* .days div:active {
+    background-color: #7209B7;
+    color: white;
+    border-radius: 4px;
+ } */
+
+.prev-date,
+.next-date {
     color: #9CA3AF;
 }
 
 .current-day {
     background-color: #7209B7;
     color: white;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
-.categories-container{
+.categories-container {
     background-color: white;
     box-shadow: 2px 1px 4px #F1F1F1;
     border-radius: 16px;
-    padding: 32px 24px;
+    padding: 24px 16px;
     flex-grow: 1;
     font-size: 16px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 392px;
+    width: 316px;
 }
 
 .categories-title {
@@ -186,21 +208,25 @@ body {
     font-weight: 600;
     font-size: 18px;
     line-height: 100%;
-    margin-bottom: 24px; 
+    margin-bottom: 16px;
 }
 
 .categories-list {
     display: flex;
     height: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
+}
+
+ul li {
+    font-size: 14px;
 }
 
 li span {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
     border-radius: 4px;
-    position: relative; 
+    position: relative;
 }
 
 .category-color-app {
@@ -230,21 +256,21 @@ ul li {
 
 input[type=text] {
     box-sizing: border-box;
-    padding: 8px 16px;
+    padding: 8px 8px;
     background-color: white;
     border: 1px solid #D1D5DB;
     border-radius: 4px;
-    width: 258px;
+    width: 208px;
     margin-top: 16px;
-    margin-right: 8px;
+    margin-right: 4px;
 }
 
 button[type=submit] {
     background-color: white;
     border: 1px solid #D1D5DB;
     border-radius: 4px;
-    padding: 8px 8px; 
-    width: 72px;
+    padding: 8px 8px;
+    width: 64px;
 }
 
 input[type=color] {
@@ -253,13 +279,17 @@ input[type=color] {
     border: 1px solid #D1D5DB;
     background-color: white;
     border-radius: 4px;
+    margin-left: 8px;
 }
 
 .wrapper main {
     flex-grow: 4;
     width: 100%;
+    position: relative;
+    margin-left: 354px;
 }
-.content-container{
+
+.content-container {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -281,8 +311,7 @@ input[type=color] {
     display: inline-block;
 }
 
-
-.hours-lines {
+.hours-lines-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -290,29 +319,50 @@ input[type=color] {
     width: 100%;
 }
 
-
-hr {
+.solid-line hr {
     border: none;
     height: 1px;
     background-color: #cdcdcd;
 }
 
-.half-hours-lines {
+.half-hours-lines-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 78px;
-    width: 100%;
+    padding-top: 76px;
+    padding-bottom: 76px;
     height: 100%;
     position: absolute;
-    left: 54px;
-    right: 54px;
-
-
+    left: 52px;
+    right: 0px;
 }
 
-
-.half-hours-lines hr {
-    height: 1px;
+.dashed-line hr {
+    border: none;
     border-top: 1px dashed #cdcdcd;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 100%;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 1px 4px #F1F1F1;
+    height: 179px;
+    position: absolute;
+    z-index: 2;
+    left: 52px;
+    top: 134px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.category-color-on-event-card {
+    background-color: #7209B7;
+    width: 40px;
+    height: 100%;
+    border-radius: 8px 0px 0px 8px;
 }
