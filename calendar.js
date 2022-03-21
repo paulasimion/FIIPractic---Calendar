@@ -73,7 +73,6 @@ const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay
 
 const nextDays = 7 - lastDayIndex - 1;
 
-
 const months = [
     "January",
     "February",
@@ -92,6 +91,7 @@ const months = [
 document.querySelector('.date h3').innerHTML = months[date.getMonth()];
 
 document.querySelector('.date p').innerHTML = new Date().toDateString();
+
 
 let days = ' ';
 
@@ -126,3 +126,18 @@ document.querySelector('.next').addEventListener('click', () => {
 });
 
 renderCalendar()
+
+// let monthPicker = document.querySelector('#month');
+// const calendar = document.querySelector('.calendar');
+
+// let monthList = calendar.querySelector('.month-list');
+
+// monthPicker.addEventListener('click', event => {
+//     monthList.classList.add('show');
+// });
+
+// months.forEach((elem, index) => {
+//     let chooseMonth = document.createElement('div');
+//     chooseMonth.innerHTML = `<div>${elem}</div>`
+//     monthList.appendChild(elem);
+// })
