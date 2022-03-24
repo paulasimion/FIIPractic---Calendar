@@ -243,14 +243,33 @@ body {
     margin-bottom: 16px;
 }
 
+.categories-container .categories-list {
+    max-height: 200px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
 .categories-list {
     display: flex;
     height: 100%;
     margin-bottom: 8px;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-ul li {
-    font-size: 14px;
+.categories-list li {
+    list-style: none;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 4px;
+    gap: 8px;
+    cursor: default;
 }
 
 li span {
@@ -259,31 +278,41 @@ li span {
     display: inline-block;
     border-radius: 4px;
     position: relative;
-}
-
-.category-color-app {
-    background-color: #4CC9F0;
-}
-
-.category-color-mtg {
-    background-color: #FA6C40;
-}
-
-.category-color-crs {
-    background-color: #7209B7;
-}
-
-.category-color-bdy {
-    background-color: #F72585;
-}
-
-ul li {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    list-style: none;
-    gap: 8px;
-    margin-bottom: 16px;
+}
+
+li .delete-category-icon {
+    color: white;
+    position: absolute;
+    right: -32px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+li .delete-category-icon i {
+    color: white;
+    font-size: 14px;
+}
+
+li:hover .delete-category-icon {
+    right: 0px;
+}
+
+.category-color-new {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 input[type=text] {
@@ -292,17 +321,24 @@ input[type=text] {
     background-color: white;
     border: 1px solid #D1D5DB;
     border-radius: 4px;
-    width: 208px;
+    width: 235px;
     margin-top: 16px;
     margin-right: 4px;
 }
 
-button[type=submit] {
+.add-category-btn {
     background-color: white;
     border: 1px solid #D1D5DB;
     border-radius: 4px;
     padding: 8px 8px;
-    width: 64px;
+    width: 40px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.add-category-btn.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 input[type=color] {

@@ -127,6 +127,8 @@ document.querySelector('.next').addEventListener('click', () => {
 
 renderCalendar()
 
+// ................... MONTH & YEAR PICKER....................
+
 // let monthPicker = document.querySelector('#month');
 // const calendar = document.querySelector('.calendar');
 
@@ -141,3 +143,88 @@ renderCalendar()
 //     chooseMonth.innerHTML = `<div>${elem}</div>`
 //     monthList.appendChild(elem);
 // })
+// ...............................................................
+
+
+
+
+// ................... CATEGORIES ....................
+
+const addCategoryInput = document.querySelector('#addCategoryInput');
+const addCategoryBtn = document.querySelector('.add-category-btn');
+const categoryColorPicker = document.getElementById('categoryColorPicker').value;
+const categoryList = document.querySelector('.categories-list');
+const defaultCategories = [{
+        name: "Appointments",
+        color: "#4CC9F0",
+    },
+    {
+        name: "Meetings",
+        color: "#FA6C40",
+    },
+    {
+        name: "Courses",
+        color: "#7209B7",
+    },
+    {
+        name: "Birthdays",
+        color: "#F72585"
+    }
+];
+
+(function() {
+    if (localStorage.getItem("New Category") === null) {
+        localStorage.setItem("New Category", JSON.stringify(defaultCategories));
+    }
+})()
+
+addCategoryInput.onkeyup = () => {
+    let userData = addCategoryInput.value;
+    if (userData.trim() != 0) {
+        addCategoryBtn.classList.add("active");
+    } else {
+        addCategoryBtn.classList.remove("active");
+    }
+}
+showCategory()
+
+addCategoryBtn.onclick = () => {
+    const inputData = addCategoryInput.value;
+    const getLocalStorage = localStorage.getItem("New Category");
+    const newCategory = { name: inputData, color: categoryColorPicker }
+    const listArr = JSON.parse(getLocalStorage); // json string becomes a js object
+    listArr.push(newCategory);
+    localStorage.setItem("New Category", JSON.stringify(listArr)); //  js object becomes a json string
+    categoryList.innerHTML += renderNewCategory(newCategory, listArr.length - 1)
+    addCategoryInput.value = "";
+};
+
+function showCategory() {
+    const getLocalStorage = localStorage.getItem("New Category");
+    const listArr = JSON.parse(getLocalStorage);
+    let newLiTag = '';
+    listArr.forEach((element, index) => {
+        console.log(element.name)
+        newLiTag += renderNewCategory(element, index);
+    });
+    categoryList.innerHTML += newLiTag;
+}
+
+function deleteCategory(index) {
+    const getLocalStorage = localStorage.getItem("New Category");
+    const listArr = JSON.parse(getLocalStorage);
+    const categoryToBeDeleted = categoryList.querySelector(`[data-index="${index}"]`);
+    listArr.splice(index, 1);
+    localStorage.setItem("New Category", JSON.stringify(listArr));
+    categoryList.removeChild(categoryToBeDeleted);
+}
+
+function renderNewCategory(category, index) {
+    return `<li data-index="${index}">
+                <span class="category-color-new" style="background-color:${category.color}"></span> 
+                ${category.name} 
+                <span class="delete-category-icon" onclick="deleteCategory(${index}); ">
+                    <i class="fas fa-trash"></i>
+                </span>
+            </li>`;
+}
