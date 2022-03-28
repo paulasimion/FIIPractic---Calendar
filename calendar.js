@@ -152,7 +152,7 @@ renderCalendar()
 
 const addCategoryInput = document.querySelector('#addCategoryInput');
 const addCategoryBtn = document.querySelector('.add-category-btn');
-const categoryColorPicker = document.getElementById('categoryColorPicker').value;
+const categoryColorPicker = document.getElementById('categoryColorPicker');
 const categoryList = document.querySelector('.categories-list');
 const defaultCategories = [{
         name: "Appointments",
@@ -172,12 +172,6 @@ const defaultCategories = [{
     }
 ];
 
-(function() {
-    if (localStorage.getItem("New Category") === null) {
-        localStorage.setItem("New Category", JSON.stringify(defaultCategories));
-    }
-})()
-
 addCategoryInput.onkeyup = () => {
     let userData = addCategoryInput.value;
     if (userData.trim() != 0) {
@@ -186,16 +180,25 @@ addCategoryInput.onkeyup = () => {
         addCategoryBtn.classList.remove("active");
     }
 }
+
+(function() {
+    if (localStorage.getItem("New Category") === null) {
+        localStorage.setItem("New Category", JSON.stringify(defaultCategories));
+    }
+})()
+
+
+
 showCategory()
 
 addCategoryBtn.onclick = () => {
     const inputData = addCategoryInput.value;
     const getLocalStorage = localStorage.getItem("New Category");
-    const newCategory = { name: inputData, color: categoryColorPicker }
+    const newCategory = { name: inputData, color: categoryColorPicker.value }
     const listArr = JSON.parse(getLocalStorage); // json string becomes a js object
     listArr.push(newCategory);
     localStorage.setItem("New Category", JSON.stringify(listArr)); //  js object becomes a json string
-    categoryList.innerHTML += renderNewCategory(newCategory, listArr.length - 1)
+    categoryList.innerHTML += renderNewCategory(newCategory, listArr.length - 1);
     addCategoryInput.value = "";
 };
 
@@ -204,7 +207,6 @@ function showCategory() {
     const listArr = JSON.parse(getLocalStorage);
     let newLiTag = '';
     listArr.forEach((element, index) => {
-        console.log(element.name)
         newLiTag += renderNewCategory(element, index);
     });
     categoryList.innerHTML += newLiTag;
@@ -228,3 +230,27 @@ function renderNewCategory(category, index) {
                 </span>
             </li>`;
 }
+
+const hoursContainer = document.querySelector('.hours-container');
+
+const linesContainer = document.querySelector('.hours-lines-container');
+
+function renderCalendarTimeline() {
+    for (let i = 0; i < 25; i++) {
+        hoursContainer.innerHTML += renderHours(i);
+        linesContainer.innerHTML += renderHourTimeline()
+    }
+}
+
+
+
+function renderHourTimeline() {
+    return `<div class="solid-line"> <hr> </div>
+        <div class="dashed-line"> <hr> </div>`
+}
+
+function renderHours(hour) {
+    return `<div>${hour}:00</div>`
+}
+
+renderCalendarTimeline();

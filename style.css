@@ -362,7 +362,6 @@ input[type=color] {
     justify-content: flex-start;
     flex-direction: row;
     position: relative;
-    display: none;
 }
 
 .hours-container {
@@ -413,6 +412,10 @@ input[type=color] {
     background-color: #fff;
     height: 1px;
     width: 100%;
+}
+
+.dashed-line:last-child {
+    display: none;
 }
 
 .event-card {
