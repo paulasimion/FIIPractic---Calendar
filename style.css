@@ -438,3 +438,183 @@ input[type=color] {
     height: 100%;
     border-radius: 8px 0px 0px 8px;
 }
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+}
+
+.modalContainer {
+    background-color: white;
+    width: 480px;
+    height: 580px;
+    padding: 40px 54px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+.modalContainer H1 {
+    margin: 16px 0px 32px 0px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #3A0CA3;
+}
+
+.modal-header>button {
+    width: 32px;
+    height: 24px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 18px;
+    color: #727171;
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.add-event-button-modal {
+    background-color: #252525;
+    border: 0px;
+    cursor: pointer;
+    padding: 14px 16px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    width: 100%;
+}
+
+.add-event-button-modal i {
+    color: white;
+    margin-right: 4px;
+}
+
+#categoriesDropdown {
+    border: 1px solid #D1D5DB;
+    width: 180px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 8px 0px 24px 0px;
+}
+
+.c-select select {
+    appearance: none;
+}
+
+.c-select::after {
+    content: "\2304";
+}
+
+.c-select {
+    position: relative
+}
+
+.c-select::after {
+    position: absolute;
+    top: 6px;
+    right: 204px;
+}
+
+
+/* ! DE MODIFICAT SAGETICA AIA DE LA DROPDOWN */
+
+.modalContainer form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modalContainer input {
+    margin: 0px;
+    width: 100%;
+    margin: 8px 0px 16px 0px;
+}
+
+.modalContainer textarea {
+    margin: 0px;
+    width: 100%;
+    height: 48px;
+    padding: 8px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    margin: 8px 0px 16px 0px;
+}
+
+.start-time-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.end-time-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#startTime {
+    border: 1px solid #D1D5DB;
+    width: 164px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0px;
+}
+
+#endTime {
+    border: 1px solid #D1D5DB;
+    width: 164px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0px;
+}
+
+.time-modal-container {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.time-modal-container i {
+    margin-top: 24px;
+    color: #727171;
+}
+
+.modalContainer label {
+    font-size: 14px;
+    color: #4d4d4d;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}

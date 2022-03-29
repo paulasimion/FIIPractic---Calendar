@@ -254,3 +254,61 @@ function renderHours(hour) {
 }
 
 renderCalendarTimeline();
+
+
+
+const addEventButton = document.querySelector('.add-event-button');
+
+
+
+function formTemplate() {
+    return `<form action="add_event" , method="get">
+        <label for="eventTitleInput">Title</label>
+        <input type="text" name="event-title" id="eventTitleInput" placeholder="Type event title here...">
+        <label for="eventDescriptionInput">Description</label>
+        <textarea name="description" form="description" placeholder="Type event description here..."></textarea>
+        <label for="categoriesDropdown">Category</label>
+        <div class="c-select"><select name="categories" id="categoriesDropdown">
+  <option value="meetings">Meetings</option>
+</select></div>
+<div class="time-modal-container"> 
+        <div class="start-time-container">
+        <label for="startTime">Start time</label>
+        <input type="time" name="start-time" id="startTime">
+        </div>
+        <i class="fa-solid fa-arrow-right-long"></i>
+        <div class="end-time-container">
+        <label for="endTime">End time</label>
+        <input type="time" name="end-time" id="endTime">
+        </div>
+        </div>
+       <div class="modal-buttons"> 
+        <button type="submit" class="add-event-button-modal">
+            <i class="fa fa-plus"></i>
+            Add Event</button>
+        </div>    
+    </form>`
+}
+
+function renderModal() {
+    const modalContainer = document.createElement('div');
+    modalContainer.classList.add('modalContainer');
+    const modalTitle = document.createElement('H1');
+    modalTitle.innerHTML = 'Add new event';
+    const exitModal = document.createElement('button');
+    exitModal.classList.add("fa", "fa-xmark", "fa-xmark-large");
+    const modalHeader = document.createElement('div');
+    modalHeader.classList.add('modal-header');
+    modalHeader.append(modalTitle, exitModal);
+    modalContainer.append(modalHeader);
+    modalContainer.innerHTML += formTemplate()
+    document.body.appendChild(modalContainer);
+    const modalBackground = document.createElement('div');
+    modalBackground.classList.add('modal-background');
+    document.body.appendChild(modalBackground)
+
+
+    return modalContainer;
+}
+
+addEventButton.addEventListener('click', renderModal);
