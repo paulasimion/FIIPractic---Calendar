@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <img src="calendar-multiselect.png">
+            <h1 class="logo-text">Calendar</h1>
+        </div>
+        <button class="add-event-button">
+            <i class="fa fa-plus"></i>
+            Add Event</button>
+    </header>
+    <div class="wrapper">
+        <aside>
+            <div class="calendar-container">
+                <div class="calendar">
+                    <div id="month">
+                        <i class="fa fa-angle-left prev"></i>
+                        <div class="date">
+                            <h3> </h3>
+                            <p> </p>
+                        </div>
+                        <i class="fas fa-angle-right next"></i>
+                    </div>
+                    <div class="weekdays">
+                        <div>Su</div>
+                        <div>Mo</div>
+                        <div>Tu</div>
+                        <div>We</div>
+                        <div>Th</div>
+                        <div>Fr</div>
+                        <div>Sa</div>
+                    </div>
+                    <div class="days"></div>
+                    <div class="month-list"></div>
+                </div>
+            </div>
+            <div class="categories-container">
+                <h2 class="categories-title">Categories</h2>
+                <ul class="categories-list">
+
+                </ul>
+                <div class="add-category">
+                    <label for="addCategoryInput">Add a new category</label>
+                    <input type="color" id="categoryColorPicker">
+                    <input type="text" name="add-category" id="addCategoryInput" placeholder="Write something...">
+                    <button type="submit" class="add-category-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+        </aside>
+        <main class="content-container">
+            <div class="hours-container">
+
+            </div>
+            <div class="hours-lines-container">
+
+            </div>
+            <div class="event-card">
+                <div class="category-color-on-event-card"> </div>
+                <div class="event-card-content">
+                    <h3>Web Fundamentals - Vanilla Flavoured Javascript</h3>
+                    <p>Cognizant Softvision</p>
+                    <div class="event-card-actions">
+                        <button class="edit-button"><i class="fa-solid fa-pen"></i> Edit</button>
+                        <button class="delete-button"><i class="fa-solid fa-trash"></i>Delete</button>
+                    </div>
+                </div> 
+            </div>
+        </main>
+    </div>
+
+
+    <!-- <script src="calendar.js"></script> -->
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
