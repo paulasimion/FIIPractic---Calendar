@@ -45,7 +45,7 @@ export const render = (rootElement) => {
   rootElement.append(categoryWidget);
   const categoryList  = categoryWidget.querySelector('.categories-list')
   const addForm  = categoryWidget.querySelector('#categoryForm');
-  
+
   categoryList.addEventListener('click', (event) => {
     const target = event.target.tagName === 'I' ? event.target.closest('span') : event.target;
     if(target.hasAttribute('data-delete-index')) {

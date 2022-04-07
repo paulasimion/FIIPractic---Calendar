@@ -7,4 +7,4 @@ export const render = (inputs = [], attributes = {}) => {
     innerHTML: inputs.map(input => createInput(input)).join(''),
   })
   return element;
-}
+} 

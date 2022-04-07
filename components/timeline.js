@@ -31,6 +31,7 @@ const computePosition = (startTime) => {
   const startHour = startTime.slice(0, 2)
   const startMinutes = startTime.slice(3)
   const totalMinutes = parseInt(startHour) * 60 + parseInt(startMinutes)
+  // every minute is equal to 3px on the timeline
   return totalMinutes * 3;
 }
 
@@ -42,6 +43,7 @@ const computeDuration = (startTime, endTime) => {
   const endMinutes = parseInt(endTime.slice(3));
 
   const totalMinutes = (endHour - startHour) * 60 - startMinutes + endMinutes;
+  // every minute is equal to 3px on the timeline
   return totalMinutes * 3;
 }
 
@@ -66,7 +68,7 @@ export const renderEvents = (rootElement, events) => {
 
 export const render = (rootElement, date) => {
   const events = get(computeDayKey(date))
-  console.log(events);
+  // create a virtual container for performance
   const linesContainer = new DocumentFragment();
   const hoursContainer = new DocumentFragment();
   linesContainer.innerHTML = '';
